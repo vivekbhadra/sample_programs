@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+class MyClass {
+public:
+    virtual void print() {cout << "MyClass" << endl;}
+};
+
+class MyDerivedClass : public MyClass {
+public:
+    virtual void newPrint() {cout << "MyDerivedClass" << endl;}
+};
+
+int main()
+{
+    MyClass *pMyClass = new MyClass;
+    MyDerivedClass *pMyDerivedClass = static_cast<MyDerivedClass *>(pMyClass);
+    pMyDerivedClass->newPrint();
+
+    return 0;
+}
