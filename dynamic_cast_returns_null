@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+class MyClass {
+public:
+    virtual void print() {cout << "MyClass" << endl;}
+};
+
+class MyDerivedClass : public MyClass {
+public:
+    virtual void newPrint() {cout << "MyDerivedClass" << endl;}
+};
+
+int main()
+{
+    MyClass *pMyClass = new MyClass;
+    MyDerivedClass *pMyDerivedClass = dynamic_cast<MyDerivedClass *>(pMyClass);
+    if(!pMyDerivedClass) {
+        cout << "Error in casting " << endl;
+    } else {
+        pMyDerivedClass->newPrint();
+    }
+
+    return 0;
+}
