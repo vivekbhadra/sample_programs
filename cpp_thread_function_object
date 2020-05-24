@@ -1,0 +1,20 @@
+#include <iostream>
+#include <thread>
+#include <chrono>
+using namespace std;
+
+struct foo {
+    void operator() ()
+    {
+        cout << "Hello World, the var value is = " << var << endl;
+    }
+private:
+    int var{100};
+};
+int main()
+{
+    thread t2{foo()};
+    t2.join();
+
+    return 0;
+}
