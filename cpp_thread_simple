@@ -1,0 +1,16 @@
+#include <iostream>
+#include <thread>
+#include <chrono>
+using namespace std;
+
+void foo()
+{
+    cout << "Hello World" << endl;
+}
+int main()
+{
+    thread t1{foo};
+    t1.join();
+
+    return 0;
+}
