@@ -5,7 +5,14 @@ using namespace std;
 
 void foo()
 {
-    cout << "Hello World" << endl;
+    int counter = 0;
+    while(true)
+    {
+        cout << "Hello World" << endl;
+        std::this_thread::sleep_for(std::chrono::seconds(10));
+        if(counter++ > 10)
+            break;
+    }
 }
 int main()
 {
